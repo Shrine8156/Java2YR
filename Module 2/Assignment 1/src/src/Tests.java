@@ -9,7 +9,7 @@ public class Tests {
         //decalring the test variables below
         double test1 = 20.21;
         double test2 = 20.21;
-        double test3 = 20.21;
+        double test3 = 29.21;
 
         //stating how i want the decimals to be formated
         DecimalFormat df = new DecimalFormat("0.00");
