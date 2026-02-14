@@ -1,41 +1,68 @@
 public class Pet {
 
-    // Private data field
+    // Fields (must match schema)
+    private int age;
     private String name;
+    private String type;
 
     // Default constructor
     public Pet() {
-        setName("Pet Name"); // using set method as instructed
+        setType("Animal");
+        setName("Pet Name");
+        setAge(1);
     }
 
-    // Getter method
+    // Custom constructor (newName, newType, newAge)
+    public Pet(String newName, String newType, int newAge) {
+        setName(newName);
+        setType(newType);
+        setAge(newAge);
+    }
+
+    // Getters
+    public int getAge() {
+        return age;
+    }
+
     public String getName() {
         return name;
     }
 
-    // Setter method
+    public String getType() {
+        return type;
+    }
+
+    // Setters
+    public void setAge(int newAge) {
+        age = newAge;
+    }
+
     public void setName(String newName) {
         name = newName;
     }
 
-    // toString method
-    public String toString() {
-        String info = "Pet information:\n";
-        info += "Name: " + name;
-        return info;
+    public void setType(String newType) {
+        type = newType;
     }
 
-    // main method
-    public static void main(String[] args) {
+    // speak method
+    public String speak() {
+        if (type.equalsIgnoreCase("dog")) {
+            return "Woof";
+        } else if (type.equalsIgnoreCase("cat")) {
+            return "Meow";
+        } else {
+            return "Yowl";
+        }
+    }
 
-        // First Pet using default constructor
-        Pet p1 = new Pet();
-        System.out.println(p1.toString());
-
-
-        // Second Pet using set method
-        Pet p2 = new Pet();
-        p2.setName("Buster");
-        System.out.println(p2.toString());
+    // toString method (calls speak inside)
+    public String toString() {
+        String info = "Pet information:\n";
+        info += "Type: " + type + "\n";
+        info += "Name: " + name + "\n";
+        info += "Sound: " + speak() + "\n";
+        info += "Age:  " + age;
+        return info;
     }
 }
